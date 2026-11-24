@@ -2,7 +2,11 @@ import { Resend } from "resend";
 import type { LeadInput } from "./supabase";
 import { SERVICE_TITLES } from "./services";
 
-const FROM = "infowebautomate@gmail.com";
+// Resend can only send from a verified domain, so the sender is the
+// webautomate.net address (domain verified in Resend via Cloudflare DNS).
+// Replies to info@webautomate.net are not collected by Resend (receiving off);
+// customers reply to the owner addresses via the demo form / site contact info.
+const FROM = "Web Automate <info@webautomate.net>";
 const OWNER_EMAILS = (process.env.OWNER_EMAILS ||
   "nalsguson@gmail.com,infowebautomate@gmail.com")
   .split(",")
