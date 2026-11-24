@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LOGO_DATA_URI } from "@/lib/logo";
 import { SERVICES, CONTACT } from "@/lib/services";
 import DemoForm from "@/components/DemoForm";
 import Portfolio from "@/components/Portfolio";
@@ -31,7 +32,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-navy-900/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <a href="#top" className="flex items-center gap-3">
-            <Image src="/webautomate-logo.png" alt="Web Automate" width={190} height={20} priority className="h-7 w-auto" />
+            <Image src={LOGO_DATA_URI} alt="Web Automate" width={190} height={20} priority unoptimized className="h-7 w-auto" />
           </a>
           <nav className="order-3 flex w-full flex-wrap gap-x-5 gap-y-1 text-sm text-slate-300 lg:order-2 lg:w-auto">
             {NAV.map((n) => (
@@ -397,7 +398,7 @@ export default function Home() {
       {/* ---------- Footer ---------- */}
       <footer className="border-t border-slate-800 bg-navy-950 py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 text-center sm:px-6">
-          <Image src="/webautomate-logo.png" alt="Web Automate" width={190} height={20} className="h-7 w-auto" />
+          <Image src={LOGO_DATA_URI} alt="Web Automate" width={190} height={20} unoptimized className="h-7 w-auto" />
           <p className="text-sm text-slate-400">Websites That Rank. Systems That Run Themselves.</p>
           <p className="text-sm text-slate-400">
             <a href={CONTACT.phoneHref} className="hover:text-white">{CONTACT.phoneDisplay}</a>

@@ -130,18 +130,15 @@ export async function sendCustomerConfirmation(lead: LeadInput): Promise<boolean
 </td></tr></table>
 </body></html>`;
 
-  // WA logo: read the cropped transparent logo from /public and attach inline.
-  // On Vercel this resolves from the project root at runtime.
+  // WA logo: decode the exact logo bytes embedded in src/lib/logo.ts.
+  // (The PNG in /public was corrupted on upload to GitHub, so do not read it from disk.)
   let attachments: { filename: string; content: Buffer; contentId: string }[] = [];
   try {
-    const fs = await import("fs/promises");
-    const path = await import("path");
-    const buf = await fs.readFile(
-      path.join(process.cwd(), "public", "webautomate-logo.png")
-    );
+    const { LOGO_PNG_BASE64 } = await import("./logo");
+    const buf = Buffer.from(LOGO_PNG_BASE64, "base64");
     attachments = [{ filename: "webautomate-logo.png", content: buf, contentId: "wa-logo" }];
   } catch {
-    console.warn("[email] logo file not found for confirmation email — sending without inline logo");
+    console.warn("[email] logo could not be decoded for confirmation email — sending without inline logo");
   }
 
   try {
