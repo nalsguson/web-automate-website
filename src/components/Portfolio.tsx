@@ -8,6 +8,12 @@ const SLOTS = [1, 2, 3, 4, 5, 6];
 export default function Portfolio() {
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  // While a dot/arrow jump is animating, ignore scroll events: the track can
+  // only scroll as far as its max, so for the last cards the nearest-to-center
+  // card is not the selected one — without this the counter snaps back to 3/6
+  // on far jumps (e.g. dot 6 from 1/6).
+  const animatingRef = useRef(false);
+  const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   function goTo(i: number) {
     const next = (i + SLOTS.length) % SLOTS.length;
@@ -25,10 +31,16 @@ export default function Portfolio() {
         track.scrollWidth - track.clientWidth
       )
     );
+    animatingRef.current = true;
+    if (animTimerRef.current) clearTimeout(animTimerRef.current);
+    animTimerRef.current = setTimeout(() => {
+      animatingRef.current = false;
+    }, 700);
     track.scrollTo({ left: target, behavior: "smooth" });
   }
 
   function handleScroll(e: React.UIEvent<HTMLDivElement>) {
+    if (animatingRef.current) return;
     const el = e.currentTarget;
     const center = el.scrollLeft + el.clientWidth / 2;
     const slots = el.querySelectorAll<HTMLElement>("[data-slot]");
@@ -48,7 +60,7 @@ export default function Portfolio() {
     <div>
       <div
         ref={trackRef}
-        className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2"
+        className="no-scrollbar flex snap-x snap-proximity gap-5 overflow-x-auto pb-2"
         onScroll={handleScroll}
       >
         {SLOTS.map((n) => (
