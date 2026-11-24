@@ -12,9 +12,36 @@ export default function Portfolio() {
   function goTo(i: number) {
     const next = (i + SLOTS.length) % SLOTS.length;
     setIndex(next);
-    trackRef.current
-      ?.querySelectorAll<HTMLElement>("[data-slot]")
-      [next]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    const track = trackRef.current;
+    const slot = track?.querySelectorAll<HTMLElement>("[data-slot]")[next];
+    if (!track || !slot) return;
+    // Scroll the track directly to center the target card. (Previously this
+    // used scrollIntoView, which fights the mandatory scroll-snap and snaps
+    // back to the current card, so the arrows looked stuck.)
+    const target = Math.max(
+      0,
+      Math.min(
+        slot.offsetLeft - (track.clientWidth - slot.clientWidth) / 2,
+        track.scrollWidth - track.clientWidth
+      )
+    );
+    track.scrollTo({ left: target, behavior: "smooth" });
+  }
+
+  function handleScroll(e: React.UIEvent<HTMLDivElement>) {
+    const el = e.currentTarget;
+    const center = el.scrollLeft + el.clientWidth / 2;
+    const slots = el.querySelectorAll<HTMLElement>("[data-slot]");
+    let best = 0;
+    let bestDist = Infinity;
+    slots.forEach((slot, i) => {
+      const dist = Math.abs(slot.offsetLeft + slot.clientWidth / 2 - center);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    if (best !== index) setIndex(best);
   }
 
   return (
@@ -22,11 +49,7 @@ export default function Portfolio() {
       <div
         ref={trackRef}
         className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2"
-        onScroll={(e) => {
-          const el = e.currentTarget;
-          const i = Math.round(el.scrollLeft / (el.scrollWidth / SLOTS.length));
-          if (i >= 0 && i < SLOTS.length && i !== index) setIndex(i);
-        }}
+        onScroll={handleScroll}
       >
         {SLOTS.map((n) => (
           <article
