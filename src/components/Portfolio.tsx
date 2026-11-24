@@ -8,7 +8,7 @@ import { DEMO_CSS } from "@/lib/portfolio-demo-css";
 // Portfolio preview. They are view-only: pointer-events none, no forms,
 // no chat, no interaction inside them. Each slot keeps the existing 9:16
 // iPhone-frame format, sizing, and swipe/arrows/dots behavior.
-const DESIGN_WIDTH = 560;
+const DESIGN_WIDTH = 540;
 
 const SLOT_BACKGROUNDS = [
   "#ffffff",
@@ -30,84 +30,91 @@ const SLOT_NAMES = [
 
 function DemoPlumbing() {
   return (
-      <div className="mini m-plumb display-only" aria-hidden="true">
-              <div className="p-top"><span>◆ SUMMIT FLOW PLUMBING</span><span className="phone">☎ 24/7 — CALL NOW</span></div>
-              <div className="p-hero">
-                <div className="p-copy"><span className="p-badge">FRANKFORT, IL • SAME DAY</span><h3>Leak? Burst pipe?<br /><span>Fixed today.</span></h3><p>Upfront pricing, licensed techs, and booking that takes under a minute.</p><div className="p-ctas"><span className="y">Call Now</span><span className="o">Book Online →</span></div><div className="p-stars">★★★★★ <b>Demo reviews</b></div></div>
-                <div className="p-photo"><img src={DEMO_IMAGES[0]} alt="Plumber fixing pipes under a kitchen sink" /><div className="p-seal">★<br />LICENSED<br />&amp; INSURED</div></div>
-              </div>
-              <svg className="p-wave" width="100%" height="16" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q37.5 0 75 8 T150 8 T225 8 T300 8 T375 8 T450 8 T525 8 T600 8 V16 H0 Z" fill="#0284c7" opacity=".28"/><path d="M0 10 Q37.5 3 75 10 T150 10 T225 10 T300 10 T375 10 T450 10 T525 10 T600 10 V16 H0 Z" fill="#0284c7" opacity=".5"/></svg>
-              <div className="p-services"><div><i>01</i> Emergency Repair</div><div><i>02</i> Drain Cleaning</div><div><i>03</i> Water Heaters</div><div><i>04</i> Remodels</div></div>
-            </div>
+      <div aria-hidden="true" className="mini m-plumb display-only">
+      <div className="p-util"><span>📍 Frankfort, IL  •  <b>Open 24 Hours</b></span><span>Lic. #055-042 • Insured</span></div>
+      <div className="p-nav"><div className="p-logo"><div className="p-logo-mark">💧</div><div><b>SUMMIT FLOW</b><span>PLUMBING CO.</span></div></div><div className="p-links"><b>Home</b><span>Services</span><span>Reviews</span><span>About</span></div><div className="p-call">☎ Call Now</div></div>
+      <div className="p-hero"><img alt="Plumber fixing pipes under a kitchen sink" src={DEMO_IMAGES[0]}/><div className="p-hero-in"><span className="p-badge">★ FRANKFORT’S SAME-DAY PLUMBERS</span><h3>Leak? Burst pipe? <span>Fixed today.</span></h3><p>Upfront pricing, licensed techs, and booking that takes under a minute.</p><div className="p-ctas"><span className="y">📞 Call Now</span><span className="o">Book Online →</span></div><div className="p-trust"><span className="g">G ★ 4.9</span><i>★★★★★</i><span>480+ local reviews</span></div></div><div className="p-seal">★<br/>LICENSED<br/>&amp; INSURED<br/>EST. DEMO</div></div>
+      <div className="p-strip"><span>✓ Same-Day Service</span><span>✓ Upfront Pricing</span><span>✓ No Overtime Fees</span></div>
+      <div className="p-sec"><div className="p-sec-head"><b>Our Services</b><span>View all →</span></div><div className="p-services"><div><i>🚨</i><b>Emergency Repair</b><span>Burst pipes &amp; leaks — fast</span></div><div><i>🌀</i><b>Drain Cleaning</b><span>Clogs cleared same day</span></div><div><i>🔥</i><b>Water Heaters</b><span>Repair &amp; install</span></div><div><i>🛁</i><b>Remodels</b><span>Bath &amp; kitchen rough-in</span></div></div></div>
+      <div className="p-review"><div className="av">M</div><div><span>★★★★★</span><p>“Called at 7am, tech was here by 9. Fixed, clean, fair price.”</p><small>— Mike R., Frankfort • Google Review</small></div></div>
+      <div className="p-book"><div><b>Book in under a minute</b><span>Pick a time — we text you back fast</span></div><em>See Times →</em></div>
+      <div className="p-foot"><b>SUMMIT FLOW PLUMBING</b> • FRANKFORT, IL • (779) 555-0142<br/>© 2026 Summit Flow Plumbing Co. • Privacy • Terms</div>
+      </div>
   );
 }
 
 function DemoHvac() {
   return (
-      <div className="mini m-hvac display-only" aria-hidden="true">
-              <div className="h-photo"><img src={DEMO_IMAGES[1]} alt="HVAC technician servicing a wall-mounted air conditioner" /><div className="h-nav"><b>NorthStar ★</b><span>Services</span><span>Plans</span><em>Get a Quote</em></div><div className="h-season">TINLEY PARK, IL — HEATING &amp; COOLING</div><div className="h-dial"><div><b>72°</b><span>COMFORT SET</span></div></div></div>
-              <div className="h-head"><h3>No heat? No AC?<br />We’re on our way.</h3><p>Repairs, installs &amp; tune-ups — with after-hours coverage built in.</p></div>
-              <div className="h-stats"><div><b>24/7</b><span>Emergency<br />service</span></div><div><b>Same-Day</b><span>Most<br />repairs</span></div><div><b>★★★★★</b><span>Demo<br />reviews</span></div></div>
-              <div className="h-plan"><div><b>Comfort Plan — $19/mo</b><span>2 tune-ups a year + priority booking</span></div><em>Join the Plan</em></div>
-            </div>
+      <div aria-hidden="true" className="mini m-hvac display-only">
+      <div className="h-util"><span>📍 Tinley Park, IL</span><span><b>24/7 Emergency</b> • (708) 555-0198</span></div>
+      <div className="h-nav"><div className="h-logo"><div className="h-logo-mark">★</div><div><b>NorthStar</b><span>HEATING &amp; AIR</span></div></div><div className="h-links"><b>Home</b><span>Services</span><span>Plans</span><span>Reviews</span></div><div className="h-quote">Get a Quote</div></div>
+      <div className="h-hero"><img alt="HVAC technician servicing a wall-mounted air conditioner" src={DEMO_IMAGES[1]}/><div className="h-dial"><div><b>72°</b><span>COMFORT SET</span></div></div><div className="h-hero-in"><span className="tag">HEATING • COOLING • SAME-DAY REPAIRS</span><h3>No heat? No AC?<br/>We’re on our way.</h3><p>Repairs, installs &amp; tune-ups — with after-hours coverage built in.</p></div></div>
+      <div className="h-stats"><div><b>24/7</b><span>Emergency service</span></div><div><b>Same-Day</b><span>Most repairs</span></div><div><b>4.9 ★</b><span>Demo reviews</span></div></div>
+      <div className="h-sec"><b>Services &amp; Repairs</b><div className="h-services"><div><div><b>Furnace Repair</b><small>Diagnostics today</small></div><span>Book →</span></div><div><div><b>AC Install &amp; Replace</b><small>Free in-home quote</small></div><span>Quote →</span></div><div><div><b>Seasonal Tune-Ups</b><small>Heating + cooling</small></div><span>Book →</span></div></div></div>
+      <div className="h-plan"><div><b>Comfort Plan — $19/mo</b><span>2 tune-ups a year + priority booking</span></div><em>Join the Plan</em></div>
+      <div className="h-review"><span>★★★★★</span>  <b>“House is warm again.”</b><br/>“Tech was here the same afternoon. Honest, fast, no upsell.” — Demo review, Tinley Park</div>
+      <div className="h-foot"><b>NORTHSTAR HEATING &amp; AIR</b> • TINLEY PARK, IL • LICENSED &amp; INSURED<br/>© 2026 NorthStar Heating &amp; Air • Open 24 Hours</div>
+      </div>
   );
 }
 
 function DemoRoof() {
   return (
-      <div className="mini m-roof display-only" aria-hidden="true">
-              <div className="r-head"><b>APEX <i>ROOF</i> CO.</b><span>ROOFING &nbsp;·&nbsp; GALLERY &nbsp;·&nbsp; INSPECTION</span></div>
-              <div className="r-hazard"></div>
-              <svg width="100%" height="20" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true" style={{ display: "block", background: "#f8fafc" }}><path d="M0 20 L110 4 L230 16 L340 2 L460 15 L600 5 L600 0 L0 0 Z" fill="#111827"/></svg>
-              <div className="r-split">
-                <div className="r-photo"><img src={DEMO_IMAGES[2]} alt="Roofers installing new shingles on a large house" /><span>FREE INSPECTION</span></div>
-                <div className="r-copy"><div className="loc">ORLAND PARK, IL</div><h3>A ROOF YOU NEVER HAVE TO WORRY ABOUT.</h3><ul className="r-list"><li>Free inspection &amp; photo report</li><li>Storm-damage help, start to finish</li><li>Proof photos on every job</li></ul><div className="r-btn">Book My <b>Free Inspection →</b></div></div>
-              </div>
-              <div className="r-strip"><span>Replacement</span><span>Storm Repair</span><span>Gutters</span><span>★★★★★ Demo</span></div>
-            </div>
+      <div aria-hidden="true" className="mini m-roof display-only">
+      <div className="r-util">⚠ STORM DAMAGE? FREE INSPECTION + PHOTO REPORT — THIS WEEK</div>
+      <div className="r-nav"><div className="r-logo"><b>APEX <i>ROOF</i> CO.</b><span>ORLAND PARK • EST. DEMO</span></div><div className="r-links"><b>Home</b><span>Roofing</span><span>Gallery</span></div><div className="r-phone">☎ Call</div></div>
+      <div className="r-hazard"></div>
+      <div className="r-hero"><img alt="Roofers installing new shingles on a large house" src={DEMO_IMAGES[2]}/><div className="r-hero-in"><div className="loc">ORLAND PARK, IL — ROOFING &amp; EXTERIORS</div><h3>A ROOF YOU NEVER HAVE TO WORRY ABOUT.</h3><p>Replacement, storm repair &amp; gutters — with proof photos on every job.</p></div></div>
+      <div className="r-form"><b>Get My Free Inspection</b><span>No pressure. Photo report within 24 hours.</span><div className="r-fields"><i>Your name</i><i>Phone number</i><em>Book →</em></div></div>
+      <div className="r-checks"><div>Free inspection &amp; photo report</div><div>Storm-damage help, start to finish</div><div>Licensed, insured &amp; locally owned</div></div>
+      <div className="r-stats"><div><b>250+</b><span>Roofs replaced*</span></div><div><b>25-YR</b><span>Workmanship warranty*</span></div><div><b>4.9 ★</b><span>Homeowner reviews*</span></div></div>
+      <div className="r-strip"><span>★★★★★</span> <b>“Crew finished in one day.”</b> “Photos before, during, and after. Yard was spotless.” — Demo review</div>
+      <div className="r-foot"><b>APEX ROOF CO.</b> • ORLAND PARK, IL • (708) 555-0117<br/>© 2026 Apex Roof Co. • *Demo figures for display</div>
+      </div>
   );
 }
 
 function DemoLawn() {
   return (
-      <div className="mini m-lawn display-only" aria-hidden="true">
-              <svg className="l-leaf l-leaf-a" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#22c55e"/><path d="M4 20C7 14 12 9 18 6" stroke="#14532d" strokeWidth="1.4" fill="none" strokeLinecap="round"/></svg>
-              <svg className="l-leaf l-leaf-b" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#84cc16"/><path d="M4 20C7 14 12 9 18 6" stroke="#365314" strokeWidth="1.4" fill="none" strokeLinecap="round"/></svg>
-              <div className="l-eyebrow">🌿 EVERLINE LAWN &amp; LANDSCAPE — MOKENA</div>
-              <h3>The <em>best-looking</em> yard on the block.</h3>
-              <p className="sub">Weekly mowing, cleanups, and patios — let the photos do the selling.</p>
-              <div className="l-photo"><img src={DEMO_IMAGES[3]} alt="Beautifully landscaped front yard with a manicured lawn and flower beds" /><div className="l-quote"><span>★★★★★</span> “Our yard has never looked this good.” — Demo review</div></div>
-              <div className="l-services"><span>Weekly Mowing</span><span>Cleanups</span><span>Mulch &amp; Beds</span><span>Patios</span></div>
-              <div className="l-cta">Get My Free Quote →</div>
-            </div>
+      <div aria-hidden="true" className="mini m-lawn display-only">
+      <div className="l-util">🌿 Now booking <b>Spring Cleanups</b> in Mokena &amp; nearby — spots fill fast</div>
+      <div className="l-nav"><div className="l-logo"><div className="l-logo-mark">🌿</div><div><b>Everline</b><span>LAWN &amp; LANDSCAPE</span></div></div><div className="l-links"><b>Home</b><span>Services</span><span>Work</span><span>About</span></div><div className="l-quote-btn">Free Quote</div></div>
+      <div className="l-hero"><div className="l-eyebrow">MOKENA, IL • LAWN CARE &amp; LANDSCAPING</div><h3>The <em>best-looking</em> yard on the block.</h3><p className="l-sub">Weekly mowing, cleanups, and patios — let the photos do the selling.</p></div>
+      <div className="l-photo"><img alt="Beautifully landscaped front yard with a manicured lawn and flower beds" src={DEMO_IMAGES[3]}/><div className="l-badge"><span>★★★★★</span> 4.9 • Demo reviews</div></div>
+      <div className="l-services"><div><i>🌱</i><b>Weekly Mowing</b><span>Striped, edged, blown clean</span></div><div><i>🍂</i><b>Cleanups</b><span>Spring &amp; fall, beds included</span></div><div><i>🌸</i><b>Mulch &amp; Beds</b><span>Fresh color, crisp edges</span></div><div><i>🧱</i><b>Patios &amp; Stone</b><span>Design + build projects</span></div></div>
+      <div className="l-review"><span>★★★★★</span> <b>“Our yard has never looked this good.”</b><br/>“On time every week. The patio turned out better than the sketch.” — Demo review, Mokena</div>
+      <div className="l-cta">Get My Free Quote →</div>
+      <div className="l-foot"><b>EVERLINE LAWN &amp; LANDSCAPE</b> • MOKENA, IL • (815) 555-0164<br/>© 2026 Everline Lawn &amp; Landscape • Mon–Sat 7am–6pm</div>
+      </div>
   );
 }
 
 function DemoDental() {
   return (
-      <div className="mini m-dental display-only" aria-hidden="true">
-              <div className="d-top"><b>✦ BrightPath Dental</b><span>Book a Visit</span></div>
-              <div className="d-card">
-                <div><span className="pill">NEW LENOX • NEW PATIENTS WELCOME</span><h3>A smile you’ll <span>actually show off.</span></h3><svg className="d-smile" width="86" height="16" viewBox="0 0 86 16" aria-hidden="true"><path d="M4 3 Q43 22 82 3" fill="none" stroke="#0d9488" strokeWidth="3" strokeLinecap="round"/><path d="M76 1 l7 1 -3 6" fill="none" stroke="#7c3aed" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg><p>Calm, modern dentistry with pricing up front and booking in under a minute.</p></div>
-                <div className="d-img"><img src={DEMO_IMAGES[4]} alt="Dentist showing a tablet to a smiling patient in a modern dental office" /></div>
-              </div>
-              <div className="d-feats"><div><i style={{ background: "#0d9488" }}>✦</i><b>Cleanings &amp; Family Care</b></div><div><i style={{ background: "#7c3aed" }}>✦</i><b>Implants &amp; Aligners</b></div><div><i style={{ background: "#db2777" }}>♥</i><b>Gentle, No-Judgment</b></div></div>
-              <div className="d-bar"><span>★★★★★ Demo reviews</span><span>Next opening: This week →</span></div>
-            </div>
+      <div aria-hidden="true" className="mini m-dental display-only">
+      <div className="d-util">✦ New patients welcome — <b>same-week appointments</b> in New Lenox</div>
+      <div className="d-nav"><div className="d-logo"><div className="d-logo-mark">✦</div><div><b>BrightPath</b><span>DENTAL • NEW LENOX</span></div></div><div className="d-links"><b>Home</b><span>Services</span><span>Patients</span></div><div className="d-book-btn">Book a Visit</div></div>
+      <div className="d-hero"><span className="d-pill">NEW LENOX • FAMILY &amp; COSMETIC DENTISTRY</span><h3>A smile you’ll <span>actually show off.</span></h3><p>Calm, modern dentistry with pricing up front and booking in under a minute.</p><div className="d-hero-img"><img alt="Dentist showing a tablet to a smiling patient in a modern dental office" src={DEMO_IMAGES[4]}/><span><i>★★★★★</i> 4.9 • Demo patient reviews</span></div></div>
+      <div className="d-feats"><div><i style={{background: "#0d9488"}}>✦</i><b>Cleanings</b><span>Family care</span></div><div><i style={{background: "#7c3aed"}}>◐</i><b>Aligners</b><span>Clear &amp; discreet</span></div><div><i style={{background: "#db2777"}}>♥</i><b>Gentle Care</b><span>No judgment</span></div></div>
+      <div className="d-list"><div><div><b>New Patient Exam &amp; Cleaning</b><small>X-rays included</small></div><span>Book →</span></div><div><div><b>Clear Aligners Consult</b><small>See your future smile</small></div><span>Free →</span></div><div><div><b>Teeth Whitening</b><small>One-visit results</small></div><span>Book →</span></div></div>
+      <div className="d-insure"><b>Most insurance accepted</b><br/>Delta • Cigna • Aetna • CareCredit  •  Next opening: This week →</div>
+      <div className="d-foot"><b>BRIGHTPATH DENTAL</b> • NEW LENOX, IL • (815) 555-0129 • MON–SAT<br/>© 2026 BrightPath Dental • Privacy • Accessibility</div>
+      </div>
   );
 }
 
 function DemoSteak() {
   return (
-      <div className="mini m-steak display-only" aria-hidden="true">
-              <div className="s-fan"><svg width="92" height="30" viewBox="0 0 92 30" aria-hidden="true"><g fill="none" stroke="#d4af37" strokeWidth="1.4"><path d="M10 28 A36 36 0 0 1 82 28"/><path d="M22 28 A24 24 0 0 1 70 28"/><path d="M34 28 A12 12 0 0 1 58 28"/><path d="M46 28 L46 4"/><path d="M46 28 L20 10"/><path d="M46 28 L72 10"/></g><circle cx="46" cy="28" r="2.4" fill="#d4af37"/></svg></div>
-              <div className="s-loc">THE IRON &amp; OAK — FRANKFORT, IL</div>
-              <h3>Steak, done right.<br /><em>Every night.</em></h3><div className="s-rule"><i></i>◆<i></i></div>
-              <p className="intro">Reservations, private events, and gift cards — elegant on desktop, perfect on a phone.</p>
-              <div className="s-photo"><img src={DEMO_IMAGES[5]} alt="Plated filet steak with mashed potatoes and greens at a fine dining restaurant" /><div className="s-seal">EST.<br />FRANKFORT<br />· IL ·</div></div>
-              <div className="s-menu"><span>Filet Mignon <b>Market</b></span><span>Ribeye <b>Market</b></span><span>Private Events <b>Book</b></span><span>Gift Cards <b>Shop</b></span></div>
-              <div className="s-btns"><span className="gold">RESERVE NOW</span><span className="line">VIEW MENU</span></div>
-            </div>
+      <div aria-hidden="true" className="mini m-steak display-only">
+      <div className="s-util">FRANKFORT, ILLINOIS  •  <b>NOW BOOKING PRIVATE EVENTS</b>  •  GIFT CARDS AVAILABLE</div>
+      <div className="s-nav"><div className="name">THE IRON <em>&amp;</em> OAK</div><div className="s-nav-links"><b>HOME</b><span>MENU</span><span>RESERVATIONS</span><span>PRIVATE EVENTS</span><span>CONTACT</span></div></div>
+      <div className="s-hero"><img alt="Plated filet steak with mashed potatoes and greens at a fine dining restaurant" src={DEMO_IMAGES[5]}/><div className="s-seal">EST.<br/>FRANKFORT<br/>· IL ·</div><div className="s-hero-in"><span>WOOD-FIRED • HAND-CUT • NIGHTLY</span><h3>Steak, done right.<br/><em>Every night.</em></h3></div></div>
+      <p className="s-intro">An <b>upscale steakhouse with a casual soul</b> — reservations, private events, and gift cards, elegant on every screen.</p>
+      <div className="s-menu"><span><span>Filet Mignon<small>Center-cut, wood-fired</small></span><b>Market</b></span><span><span>Ribeye<small>Dry-aged, house butter</small></span><b>Market</b></span><span><span>Wood-Fired Salmon<small>Seasonal preparation</small></span><b>Market</b></span></div>
+      <div className="s-events"><div><b>Private Events</b><span>Buyouts &amp; celebrations, handled end to end</span></div><em>PLAN YOURS →</em></div>
+      <div className="s-btns"><span className="gold">RESERVE NOW</span><span className="line">VIEW FULL MENU</span></div>
+      <div className="s-foot"><b>THE IRON &amp; OAK</b> • FRANKFORT, IL • KITCHEN MON–THU 4–10 • FRI–SAT 4–10 • SUN 1–8<br/>© 2026 The Iron &amp; Oak • Demo concept</div>
+      </div>
   );
 }
 
@@ -123,7 +130,7 @@ export default function Portfolio() {
   const animatingRef = useRef(false);
   const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // The demo sites are designed at 560px wide; scale them to the slot width.
+  // The demo sites are designed at 540px wide (960px tall, exact 9:16); scale them to the slot width.
   const [slotWidth, setSlotWidth] = useState(240);
   const slotRefs = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
