@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
   try {
     const client = new Anthropic({ apiKey: key });
     const res = await client.messages.create({
-      model: "claude-sonnet-4-5-20250929",
+      model: "claude-sonnet-5-5", // Sonnet 4.5 retired Nov 30, 2026; Sonnet 5.5 is Anthropic's listed replacement
       max_tokens: 600,
       system: CHAT_SYSTEM_PROMPT,
       messages: clean,
