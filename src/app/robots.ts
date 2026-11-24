@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
 
-// STAGING: Disallow all crawlers until go-live.
-// At launch, change this to allow crawling (see README go-live checklist).
+// Live: allow all crawlers.
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", disallow: "/" }],
+    rules: [{ userAgent: "*", allow: "/" }],
     sitemap: "https://webautomate.net/sitemap.xml",
   };
 }

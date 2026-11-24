@@ -6,9 +6,7 @@ export const metadata: Metadata = {
   title: "Web Automate | Websites That Rank. Systems That Run Themselves.",
   description:
     "Web Automate builds websites for local service businesses — with scheduling, an AI chatbot, an AI voice receptionist, SEO, and Google Business Profile setup. Request a free demo.",
-  // STAGING: do not index until go-live. Remove `robots` below and update
-  // src/app/robots.ts at launch (see README go-live checklist).
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Web Automate | Websites That Rank. Systems That Run Themselves.",
     description:
