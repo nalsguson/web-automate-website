@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
   try {
     const client = new Anthropic({ apiKey: key });
     const res = await client.messages.create({
-      model: "claude-sonnet-4-5",
+      model: "claude-sonnet-4-5-20250929",
       max_tokens: 600,
       system: CHAT_SYSTEM_PROMPT,
       messages: clean,
