@@ -121,15 +121,15 @@ export default function Home() {
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s) => (
-            <article key={s.id} className="card-glow flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-navy-850 transition">
+            <article key={s.id} className="card-glow flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1526] transition">
               <ServiceMock kind={s.id} />
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-xl font-bold leading-snug"><span className="mr-2">{s.icon}</span>{s.title}</h3>
+                <h3 className="text-lg font-bold leading-snug"><span className="mr-2">{s.icon}</span>{s.title}</h3>
                 <p className="mt-1 text-sm font-semibold text-brand-teal">{s.tagline}</p>
-                <p className="mt-3 flex-1 leading-relaxed text-slate-300">{s.body}</p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{s.body}</p>
                 <ul className="mt-4 space-y-1.5 text-sm text-slate-300">
                   {s.bullets.map((b) => (
-                    <li key={b} className="flex gap-2"><span className="text-brand-green">✓</span>{b}</li>
+                    <li key={b} className="flex gap-2"><span className="text-emerald-400">✓</span>{b}</li>
                   ))}
                 </ul>
               </div>

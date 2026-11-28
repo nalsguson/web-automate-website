@@ -42,9 +42,20 @@ body {
   animation: fadeUp 0.5s ease-out both;
 }
 
+/* brand gradient — copied from the demo artifact */
+.grad-bg {
+  background: linear-gradient(92deg, #2e6bff 0%, #14b8a6 55%, #22c55e 100%);
+}
+.grad-text {
+  background: linear-gradient(92deg, #2e6bff 0%, #14b8a6 55%, #22c55e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* service-card hover — copied from the demo artifact */
 .card-glow {
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .card-glow:hover {
   border-color: #2e6bff;
