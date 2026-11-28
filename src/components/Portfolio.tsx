@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { DEMO_IMAGES } from "@/lib/portfolio-images";
 import { DEMO_CSS } from "@/lib/portfolio-demo-css";
 
-// Six display-only demo sites, copied verbatim from the Web Automate Demo
+// Ten display-only demo sites, copied verbatim from the Web Automate Demo
 // Portfolio preview. They are view-only: pointer-events none, no forms,
 // no chat, no interaction inside them. Each slot keeps the existing 9:16
 // iPhone-frame format, sizing, and swipe/arrows/dots behavior.
@@ -17,6 +17,10 @@ const SLOT_BACKGROUNDS = [
   "#fefce8",
   "linear-gradient(180deg,#f5f3ff 0%,#ecfdf5 100%)",
   "#0c0a09",
+  "#f7fee7",
+  "#fff7f7",
+  "#0f0a2e",
+  "#09090b",
 ];
 
 const SLOT_NAMES = [
@@ -26,6 +30,10 @@ const SLOT_NAMES = [
   "Everline Lawn & Landscape",
   "BrightPath Dental",
   "The Iron & Oak Steakhouse",
+  "Timberline Tree Co.",
+  "Wag & Wander",
+  "NightRide Party Bus",
+  "Prestige Limo",
 ];
 
 function DemoPlumbing() {
@@ -118,15 +126,73 @@ function DemoSteak() {
   );
 }
 
-const DEMOS = [DemoPlumbing, DemoHvac, DemoRoof, DemoLawn, DemoDental, DemoSteak];
+function DemoTree() {
+  return (
+      <div className="mini m-tree display-only" aria-hidden="true">
+      <div className="t-util"><span>📍 Joliet, IL &nbsp;•&nbsp; <b>Free Estimates</b></span><span>Licensed • Insured</span></div>
+      <div className="t-nav"><div className="t-logo"><div className="t-logo-mark">🌲</div><div><b>TIMBERLINE</b><span>TREE CO.</span></div></div><div className="t-links"><b>Home</b><span>Services</span><span>Reviews</span><span>About</span></div><div className="t-call">☎ Call Now</div></div>
+      <div className="t-hero"><img src={DEMO_IMAGES[6]} alt="Tree service crew trimming a large tree beside a residential street"/><div className="t-hero-in"><span className="t-badge">⚠ STORM DAMAGE? WE RESPOND FAST</span><h3>Big tree. Bigger risk. <span>Handled safely.</span></h3><p>Removal, trimming &amp; stump grinding — cleaned up like we were never there.</p></div></div>
+      <div className="t-strip"><span>✓ Free Estimates</span><span>✓ Fully Insured</span><span>✓ Full Cleanup</span></div>
+      <div className="t-sec"><div className="t-sec-head"><b>Our Services</b><span>View all →</span></div><div className="t-services"><div><i>🪓</i><b>Tree Removal</b><span>Safe takedown, any size</span></div><div><i>✂️</i><b>Trimming &amp; Pruning</b><span>Health, shape &amp; clearance</span></div><div><i>🪵</i><b>Stump Grinding</b><span>Gone below the surface</span></div><div><i>⛈️</i><b>Storm Cleanup</b><span>Fallen trees &amp; debris</span></div></div></div>
+      <div className="t-review"><span>★★★★★</span> <b>“Yard was spotless.”</b><br/>“Took down a huge oak over the house. Crew was careful, fast, and cleaned everything up.” — Demo review, Joliet</div>
+      <div className="t-book"><div><b>Get a free estimate</b><span>Send a photo — we quote fast</span></div><em>Get Quote →</em></div>
+      <div className="t-foot"><b>TIMBERLINE TREE CO.</b> • JOLIET, IL • (815) 555-0187<br/>© 2026 Timberline Tree Co. • Mon–Sat 7am–6pm</div>
+      </div>
+  );
+}
+
+function DemoDog() {
+  return (
+      <div className="mini m-dog display-only" aria-hidden="true">
+      <div className="w-util">🐾 Now welcoming <b>new pups</b> in Frankfort &amp; Mokena — first walk free*</div>
+      <div className="w-nav"><div className="w-logo"><div className="w-logo-mark">🐾</div><div><b>Wag &amp; Wander</b><span>DOG WALKING CO.</span></div></div><div className="w-links"><b>Home</b><span>Walks</span><span>Pricing</span><span>Reviews</span></div><div className="w-book-btn">Book a Walk</div></div>
+      <div className="w-hero"><img src={DEMO_IMAGES[7]} alt="Dog walker walking several happy dogs on leashes through a sunny park"/><div className="w-hero-in"><span className="tag">DOG WALKING • PET SITTING • FRANKFORT, IL</span><h3>A tired dog is a happy dog.</h3><p>Midday walks, photo updates, and a pup who’s actually worn out when you get home.</p></div></div>
+      <div className="w-feats"><div><i>📸</i><b>Photo Updates</b><span>Every walk</span></div><div><i>📍</i><b>GPS Walks</b><span>Route shared</span></div><div><i>♥</i><b>Bonded &amp; Insured</b><span>Trusted sitters</span></div></div>
+      <div className="w-sec"><b>Walks &amp; Visits</b><div className="w-services"><div><div><b>Solo Dog Walk</b><small>30 or 60 min, your route</small></div><span>Book →</span></div><div><div><b>Group Adventure Walk</b><small>Park play with friends</small></div><span>Book →</span></div><div><div><b>Puppy &amp; Pet Visits</b><small>Feeding, play &amp; check-ins</small></div><span>Book →</span></div></div></div>
+      <div className="w-review"><span>★★★★★</span><p>“The photos make my whole day. Our dog drags us to the door waiting for her walker.”</p><small>— Demo review, Frankfort • *Demo offer for display</small></div>
+      <div className="w-foot"><b>WAG &amp; WANDER</b> • FRANKFORT, IL • (815) 555-0134<br/>© 2026 Wag &amp; Wander Dog Walking Co. • Daily 7am–7pm</div>
+      </div>
+  );
+}
+
+function DemoParty() {
+  return (
+      <div className="mini m-party display-only" aria-hidden="true">
+      <div className="pb-util">🎉 WEEKEND DATES FILL FAST — CHECK YOUR DATE BEFORE IT’S GONE</div>
+      <div className="pb-nav"><div className="pb-logo"><b>NIGHT<i>RIDE</i></b><span>PARTY BUS • CHICAGOLAND</span></div><div className="pb-links"><b>Home</b><span>Fleet</span><span>Occasions</span></div><div className="pb-quote">Get a Quote</div></div>
+      <div className="pb-hero"><img src={DEMO_IMAGES[8]} alt="Party bus interior lit up with colorful celebration lights and lounge seating"/><div className="pb-hero-in"><div className="loc">CHICAGOLAND — PARTY BUSES &amp; GROUP NIGHTS OUT</div><h3>THE PARTY STARTS <span>AT PICKUP.</span></h3><p>Light shows, booming sound, and room for the whole crew — driver included.</p></div></div>
+      <div className="pb-fleet"><div><b>14</b><span>Passenger mini bus*</span></div><div><b>24</b><span>Passenger party bus*</span></div><div><b>36</b><span>Passenger coach*</span></div></div>
+      <div className="pb-sec"><b>Built For Your Night</b><div className="pb-occ"><div><div><b>Birthdays &amp; Bachelorettes</b><small>Your playlist, your route</small></div><span>Quote →</span></div><div><div><b>Prom &amp; Homecoming</b><small>Safe, parent-approved rides</small></div><span>Quote →</span></div><div><div><b>Weddings &amp; Bar Crawls</b><small>One ride for the whole party</small></div><span>Quote →</span></div></div></div>
+      <div className="pb-review"><span>★★★★★</span> <b>“Best part of the night.”</b> “Driver was great, bus was spotless, lights were insane. Booking took two minutes.” — Demo review</div>
+      <div className="pb-foot"><b>NIGHTRIDE PARTY BUS</b> • CHICAGOLAND, IL • (708) 555-0173<br/>© 2026 NightRide Party Bus • *Demo fleet sizes for display</div>
+      </div>
+  );
+}
+
+function DemoLimo() {
+  return (
+      <div className="mini m-limo display-only" aria-hidden="true">
+      <div className="lm-util">CHICAGOLAND &nbsp;•&nbsp; <b>AIRPORT • WEDDINGS • CORPORATE</b> &nbsp;•&nbsp; CHAUFFEUR SERVICE</div>
+      <div className="lm-nav"><div className="name">PRESTIGE <em>LIMO</em></div><div className="lm-nav-links"><b>HOME</b><span>FLEET</span><span>SERVICES</span><span>WEDDINGS</span><span>CONTACT</span></div></div>
+      <div className="lm-hero"><img src={DEMO_IMAGES[9]} alt="Black stretch limousine waiting on a red carpet outside an elegant hotel entrance at night"/><div className="lm-hero-in"><span>ARRIVE LIKE IT MATTERS</span><h3>Quiet luxury.<br/><em>On time, every time.</em></h3></div></div>
+      <p className="lm-intro">A <b>professional chauffeur service</b> for the nights — and days — where showing up right is the whole point.</p>
+      <div className="lm-services"><span><span>Airport Service<small>O’Hare &amp; Midway, flight-tracked</small></span><b>RESERVE</b></span><span><span>Weddings<small>Red-carpet service for your party</small></span><b>RESERVE</b></span><span><span>Corporate &amp; Nights Out<small>Hourly chauffeur, discreet &amp; prompt</small></span><b>RESERVE</b></span></div>
+      <div className="lm-strip"><div><b>Wedding Dates Open</b><span>Reserve your date before the season fills</span></div><em>CHECK DATE →</em></div>
+      <div className="lm-btns"><span className="gold">RESERVE NOW</span><span className="line">VIEW THE FLEET</span></div>
+      <div className="lm-foot"><b>PRESTIGE LIMO</b> • CHICAGOLAND, IL • (312) 555-0161 • BY RESERVATION<br/>© 2026 Prestige Limo • Demo concept</div>
+      </div>
+  );
+}
+
+const DEMOS = [DemoPlumbing, DemoHvac, DemoRoof, DemoLawn, DemoDental, DemoSteak, DemoTree, DemoDog, DemoParty, DemoLimo];
 
 export default function Portfolio() {
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   // While a dot/arrow jump is animating, ignore scroll events: the track can
   // only scroll as far as its max, so for the last cards the nearest-to-center
-  // card is not the selected one — without this the counter snaps back to 3/6
-  // on far jumps (e.g. dot 6 from 1/6).
+  // card is not the selected one — without this the counter snaps back to 5/10
+  // on far jumps (e.g. dot 10 from 1/10).
   const animatingRef = useRef(false);
   const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -193,9 +259,15 @@ export default function Portfolio() {
   return (
     <div>
       <style>{DEMO_CSS}</style>
+      {/* Visible slide bar for the rolodex track */}
+      <style>{`.portfolio-track{{scrollbar-width:thin;scrollbar-color:#64748b rgba(148,163,184,.18)}}
+.portfolio-track::-webkit-scrollbar{{height:8px}}
+.portfolio-track::-webkit-scrollbar-track{{background:rgba(148,163,184,.18);border-radius:99px}}
+.portfolio-track::-webkit-scrollbar-thumb{{background:#64748b;border-radius:99px}}
+.portfolio-track::-webkit-scrollbar-thumb:hover{{background:#94a3b8}}`}</style>
       <div
         ref={trackRef}
-        className="no-scrollbar flex snap-x snap-proximity gap-5 overflow-x-auto pb-2"
+        className="portfolio-track flex snap-x snap-proximity gap-5 overflow-x-auto pb-2"
         onScroll={handleScroll}
       >
         {DEMOS.map((Demo, i) => (
