@@ -371,7 +371,7 @@ export default function Home() {
           <div className="lg:col-span-2">
             <div className="space-y-5 rounded-2xl border border-slate-700 bg-navy-850 p-6">
               <div>
-                <p className="text-sm font-semibold text-slate-400">Call us</p>
+                <p className="text-sm font-semibold text-slate-400">Call or Text us <span className="ml-1 rounded-full bg-brand-teal/15 px-2 py-0.5 text-xs font-semibold text-brand-teal">Text preferred</span></p>
                 <a href={CONTACT.phoneHref} className="text-xl font-bold hover:underline">{CONTACT.phoneDisplay}</a>
               </div>
               <div>

@@ -101,7 +101,7 @@ export default function DemoForm() {
               />
               <span>
                 <span className="mr-1">{s.icon}</span>
-                {s.title}
+                {s.id === "seo" ? "SEO" : s.title}
               </span>
             </label>
           ))}
