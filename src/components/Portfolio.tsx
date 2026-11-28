@@ -259,15 +259,15 @@ export default function Portfolio() {
   return (
     <div>
       <style>{DEMO_CSS}</style>
-      {/* Visible slide bar for the rolodex track */}
-      <style>{`.portfolio-track{{scrollbar-width:thin;scrollbar-color:#64748b rgba(148,163,184,.18)}}
+      {/* Blue glass slide bar for the rolodex track */}
+      <style>{`.portfolio-track{{scrollbar-width:thin;scrollbar-color:#2e6bff rgba(46,107,255,.12)}}
 .portfolio-track::-webkit-scrollbar{{height:8px}}
-.portfolio-track::-webkit-scrollbar-track{{background:rgba(148,163,184,.18);border-radius:99px}}
-.portfolio-track::-webkit-scrollbar-thumb{{background:#64748b;border-radius:99px}}
-.portfolio-track::-webkit-scrollbar-thumb:hover{{background:#94a3b8}}`}</style>
+.portfolio-track::-webkit-scrollbar-track{{background:rgba(46,107,255,.12);border-radius:99px}}
+.portfolio-track::-webkit-scrollbar-thumb{{background:#2e6bff;border-radius:99px}}
+.portfolio-track::-webkit-scrollbar-thumb:hover{{background:#5b8cff}}`}</style>
       <div
         ref={trackRef}
-        className="portfolio-track flex snap-x snap-proximity gap-5 overflow-x-auto pb-2"
+        className="portfolio-track flex snap-x snap-proximity gap-5 overflow-x-auto rounded-[28px] border border-blue-400/40 bg-brand-blue/25 p-5 shadow-xl shadow-black/40 backdrop-blur-xl"
         onScroll={handleScroll}
       >
         {DEMOS.map((Demo, i) => (
@@ -303,7 +303,7 @@ export default function Portfolio() {
                 </div>
               </div>
             </article>
-            <p className="mt-2.5 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">
+            <p className="mt-2.5 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-slate-300">
               Demo only
             </p>
           </div>
