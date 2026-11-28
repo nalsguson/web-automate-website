@@ -259,12 +259,11 @@ export default function Portfolio() {
   return (
     <div>
       <style>{DEMO_CSS}</style>
-      {/* Rolodex scrollbar: solid theme-blue thumb on a clear glass track */}
-      <style>{`.portfolio-track{{scrollbar-width:thin;scrollbar-color:#2e6bff rgba(255,255,255,.08)}}
-.portfolio-track::-webkit-scrollbar{{height:8px}}
-.portfolio-track::-webkit-scrollbar-track{{background:rgba(255,255,255,.08);border-radius:99px}}
-.portfolio-track::-webkit-scrollbar-thumb{{background:#2e6bff;border-radius:99px}}
-.portfolio-track::-webkit-scrollbar-thumb:hover{{background:#5b8cff}}`}</style>
+      {/* Rolodex scrollbar: exact copy of the demo portfolio artifact's slider bar */}
+      <style>{`.portfolio-track{scrollbar-width:thin;scrollbar-color:#334155 transparent;}
+.portfolio-track::-webkit-scrollbar{height:6px}
+.portfolio-track::-webkit-scrollbar-thumb{background:#334155;border-radius:99px}
+.portfolio-track::-webkit-scrollbar-track{background:transparent}`}</style>
       <div
         ref={trackRef}
         className="portfolio-track flex snap-x snap-proximity gap-5 overflow-x-auto pb-2"
