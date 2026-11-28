@@ -3,6 +3,7 @@ import { LOGO_DATA_URI } from "@/lib/logo";
 import { SERVICES, CONTACT } from "@/lib/services";
 import DemoForm from "@/components/DemoForm";
 import Portfolio from "@/components/Portfolio";
+import ServiceMock from "@/components/ServiceMock";
 
 const NAV = [
   { href: "#services", label: "Services" },
@@ -120,16 +121,18 @@ export default function Home() {
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s) => (
-            <article key={s.id} className="flex flex-col rounded-2xl border border-slate-700 bg-navy-850 p-6 transition hover:border-brand-teal/60 hover:shadow-xl hover:shadow-brand-teal/10">
-              <span className="text-4xl">{s.icon}</span>
-              <h3 className="mt-4 text-xl font-bold leading-snug">{s.title}</h3>
-              <p className="mt-1 text-sm font-semibold text-brand-teal">{s.tagline}</p>
-              <p className="mt-3 flex-1 leading-relaxed text-slate-300">{s.body}</p>
-              <ul className="mt-4 space-y-1.5 text-sm text-slate-300">
-                {s.bullets.map((b) => (
-                  <li key={b} className="flex gap-2"><span className="text-brand-green">✓</span>{b}</li>
-                ))}
-              </ul>
+            <article key={s.id} className="card-glow flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-navy-850 transition">
+              <ServiceMock kind={s.id} />
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-xl font-bold leading-snug"><span className="mr-2">{s.icon}</span>{s.title}</h3>
+                <p className="mt-1 text-sm font-semibold text-brand-teal">{s.tagline}</p>
+                <p className="mt-3 flex-1 leading-relaxed text-slate-300">{s.body}</p>
+                <ul className="mt-4 space-y-1.5 text-sm text-slate-300">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex gap-2"><span className="text-brand-green">✓</span>{b}</li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ))}
         </div>
